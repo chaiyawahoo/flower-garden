@@ -1,15 +1,17 @@
 import turtle as t
 from flower import Flower
+from orchid import Orchid
 
 screen = t.Screen()
 t.ht()
 t.speed("fastest")
 
-pinky = Flower(t, 0, 0, "pink", "orange", 40, 6, 100)
-blu = Flower(t, 0, 0, "lightblue", "yellow", 30, 8, 60)
-orchid = Flower(t, 0, 0, "purple", "white", 35, 5, 35)
-flowers = [pinky, blu, orchid]
+flowers = []
 f_index = 0
+
+flowers.append(Flower(t, 0, 0, "pink", "orange", 40, 6, 100))
+flowers.append(Flower(t, 0, 0, "lightblue", "yellow", 30, 8, 60))
+flowers.append(Orchid(t, 0, 0, "purple", "pink", "yellow", 35)) # orchid
 
 def next_flower():
     global f_index

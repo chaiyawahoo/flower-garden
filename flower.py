@@ -15,12 +15,15 @@ class Flower(Drawable):
         self.t.backward(self.petal_length)
         self.t.right(self.get_turn_degrees())
     
+    def draw_petals(self):
+        for _ in range(self.num_petals):
+            self.draw_petal()
+    
     def draw_center(self):
         self.t.pencolor(self.center_color)
         self.t.dot(self.line_width * 1.25)
     
     def draw(self, x=None, y=None):
         super().draw(x, y)
-        for _ in range(self.num_petals):
-            self.draw_petal()
+        self.draw_petals()
         self.draw_center()

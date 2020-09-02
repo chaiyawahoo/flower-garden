@@ -1,8 +1,8 @@
 from drawable import Drawable
 
 class Flower(Drawable):
-    def __init__(self, t, x, y, color, center_color, line_width, num_petals, petal_length):
-        super().__init__(t, x, y, color, line_width)
+    def __init__(self, x, y, color, center_color, line_width, num_petals, petal_length):
+        super().__init__(x, y, color, line_width)
         self.center_color = center_color
         self.num_petals = num_petals
         self.petal_length = petal_length
@@ -27,3 +27,4 @@ class Flower(Drawable):
         super().draw(x, y)
         self.draw_petals()
         self.draw_center()
+        return False

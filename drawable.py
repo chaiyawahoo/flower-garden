@@ -1,5 +1,7 @@
+import turtle as t
+
 class Drawable:
-    def __init__(self, t, x, y, color, line_width):
+    def __init__(self, x, y, color, line_width):
         self.t = t
         self.x = x
         self.y = y
@@ -15,3 +17,4 @@ class Drawable:
         self.t.pencolor(self.color)
         self.t.pensize(self.line_width)
         self.t.pendown()
+        return 0

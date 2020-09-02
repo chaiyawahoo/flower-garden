@@ -1,8 +1,8 @@
 from flower import Flower
 
 class Orchid(Flower):
-    def __init__(self, t, x, y, color1, color2, center_color, line_width):
-        super().__init__(t, x, y, color1, center_color, line_width, 5, line_width)
+    def __init__(self, x, y, color1, color2, center_color, line_width):
+        super().__init__(x, y, color1, center_color, line_width, 5, line_width)
         self.color2 = color2
 
     def draw_center(self):

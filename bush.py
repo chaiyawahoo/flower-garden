@@ -7,7 +7,9 @@ class Bush(Drawable):
         self.num_leaves = num_leaves
     
     def get_turn_degrees(self):
-        return 180 / (self.num_leaves - 1)
+        if self.num_leaves == 1:
+            return 0
+        return super().get_turn_degrees(180, self.num_leaves - 1)
 
     def draw_base(self):
         self.t.forward(self.line_width * 0.25)

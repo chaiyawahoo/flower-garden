@@ -8,7 +8,7 @@ class Tree(Drawable):
         self.branch_length = branch_length
 
     def get_turn_degrees(self):
-        return 180 / self.num_branches
+        return super().get_turn_degrees(180, self.num_branches)
     
     def draw_trunk(self):
         self.t.pensize(self.line_width)

@@ -8,6 +8,11 @@ class Drawable:
         self.color1 = color1
         self.color2 = color2
         self.line_width = line_width
+    
+    def get_turn_degrees(self, degrees=360, count=1):
+        assert (degrees >= 0), "Degrees must be greater than or equal to 0!"
+        assert (count != 0), "Count must not be 0!"
+        return degrees / count
 
     def repeater(self, count, fun):
         for _ in range(count):

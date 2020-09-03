@@ -8,6 +8,10 @@ class Drawable:
         self.color1 = color1
         self.color2 = color2
         self.line_width = line_width
+
+    def repeater(self, count, fun):
+        for _ in range(count):
+            fun()
     
     def draw(self, x=None, y=None):
         x_pos = x if not x == None else self.x

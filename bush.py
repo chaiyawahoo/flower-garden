@@ -28,15 +28,18 @@ class Bush(Drawable):
     
     def draw_leaves(self):
         self.t.setheading(180)
-        for _ in range(self.num_leaves):
-            self.t.pencolor(self.color1)
-            self.draw_leaf()
-            self.t.left(self.get_turn_degrees())
-            self.t.pencolor(self.color2)
-            self.draw_berry()
+        self.t.pencolor(self.color1)
+        self.repeater(self.num_leaves, self.draw_leaf)
+    
+    def draw_berries(self):
+        self.t.setheading(180)
+        self.t.pencolor(self.color2)
+        self.repeater(self.num_leaves, self.draw_berry)
 
     def draw(self, x=None, y=None):
         super().draw(x, y)
         self.t.penup()
         self.draw_base()
         self.draw_leaves()
+        self.draw_berries()
+        return False

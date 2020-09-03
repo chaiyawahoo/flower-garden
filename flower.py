@@ -15,8 +15,9 @@ class Flower(Drawable):
         self.t.right(self.get_turn_degrees())
     
     def draw_petals(self):
-        for _ in range(self.num_petals):
-            self.draw_petal()
+        self.repeater(self.num_petals, self.draw_petal)
+        # for _ in range(self.num_petals):
+        #     self.draw_petal()
     
     def draw_center(self):
         self.t.pencolor(self.color2)

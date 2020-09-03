@@ -1,6 +1,7 @@
 import turtle as t
 from flower import Flower
 from orchid import Orchid
+from tree import Tree
 
 screen = t.Screen()
 t.ht()
@@ -12,10 +13,11 @@ f_index = 0
 is_drawing = False
 draw_q = []
 
-flowers.append(Flower(0, 0, "pink", "orange", 40, 6, 100))
-flowers.append(Flower(0, 0, "lightblue", "yellow", 30, 8, 60))
-flowers.append(Orchid(0, 0, "purple", "pink", "yellow", 35))
-flowers.append(Orchid(0, 0, "orange", "magenta", "white", 50))
+flowers.append(Flower(0, 0, "pink", "orange", 20, 6, 50))
+flowers.append(Flower(0, 0, "lightblue", "yellow", 15, 8, 30))
+flowers.append(Orchid(0, 0, "purple", "pink", "yellow", 17.5))
+flowers.append(Orchid(0, 0, "orange", "magenta", "white", 25))
+flowers.append(Tree(0, 0, 50, 100, 4, 50))
 
 def next_flower():
     global f_index

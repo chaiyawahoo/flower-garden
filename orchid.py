@@ -14,4 +14,3 @@ class Orchid(Flower):
         self.t.pencolor(self.color2)
         self.t.pensize(self.line_width * 0.25)
         super().draw_petals()
-            

@@ -1,8 +1,8 @@
 from drawable import Drawable
 
 class Tree(Drawable):
-    def __init__(self, x, y, line_width, trunk_length, num_branches, branch_length):
-        super().__init__(x, y, "brown", line_width)
+    def __init__(self, x, y, trunk_color, leaf_color, line_width, trunk_length, num_branches, branch_length):
+        super().__init__(x, y, trunk_color, leaf_color, line_width)
         self.trunk_length = trunk_length
         self.num_branches = num_branches
         self.branch_length = branch_length
@@ -15,7 +15,7 @@ class Tree(Drawable):
         self.t.forward(self.trunk_length)
     
     def draw_branch(self):
-        self.t.pencolor("brown")
+        self.t.pencolor(self.color1)
         self.t.pendown()
         if (self.num_branches > 2):
             self.t.pensize(self.line_width / self.num_branches * 2)
@@ -26,11 +26,11 @@ class Tree(Drawable):
         self.t.right(self.get_turn_degrees())
     
     def draw_leaves(self):
-        self.t.pencolor("green")
+        self.t.pencolor(self.color2)
         self.t.penup()
         self.t.left(self.get_turn_degrees())
         self.t.forward(self.branch_length + self.line_width / 2)
-        self.t.dot(self.line_width)
+        self.t.dot(self.line_width * (1 + 1 / self.num_branches))
         self.t.backward(self.branch_length + self.line_width / 2)
         self.t.right(self.get_turn_degrees())
     

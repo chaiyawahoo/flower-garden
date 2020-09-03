@@ -1,9 +1,8 @@
 from drawable import Drawable
 
 class Flower(Drawable):
-    def __init__(self, x, y, color, center_color, line_width, num_petals, petal_length):
-        super().__init__(x, y, color, line_width)
-        self.center_color = center_color
+    def __init__(self, x, y, petal_color, center_color, line_width, num_petals, petal_length):
+        super().__init__(x, y, petal_color, center_color, line_width)
         self.num_petals = num_petals
         self.petal_length = petal_length
 
@@ -20,7 +19,7 @@ class Flower(Drawable):
             self.draw_petal()
     
     def draw_center(self):
-        self.t.pencolor(self.center_color)
+        self.t.pencolor(self.color2)
         self.t.dot(self.line_width * 1.25)
     
     def draw(self, x=None, y=None):

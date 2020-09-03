@@ -2,34 +2,36 @@ import turtle as t
 from flower import Flower
 from orchid import Orchid
 from tree import Tree
+from bush import Bush
 
 screen = t.Screen()
 t.ht()
 t.speed("fastest")
 
-flowers = []
-f_index = 0
+objects = []
+o_index = 0
 
 is_drawing = False
 draw_q = []
 
-flowers.append(Flower(0, 0, "pink", "orange", 20, 6, 50))
-flowers.append(Flower(0, 0, "lightblue", "yellow", 15, 8, 30))
-flowers.append(Orchid(0, 0, "purple", "pink", "yellow", 17.5))
-flowers.append(Orchid(0, 0, "orange", "magenta", "white", 25))
-flowers.append(Tree(0, 0, 50, 100, 4, 50))
+objects.append(Flower(0, 0, "pink", "orange", 20, 6, 50))
+objects.append(Flower(0, 0, "lightblue", "yellow", 15, 8, 30))
+objects.append(Orchid(0, 0, "purple", "pink", "yellow", 17.5))
+objects.append(Orchid(0, 0, "orange", "magenta", "white", 25))
+objects.append(Tree(0, 0, "brown", "green", 75, 150, 4, 75))
+objects.append(Bush(0, 0, "green", "red", 50, 15, 5))
 
-def next_flower():
-    global f_index
-    f_index = f_index + 1 if f_index < len(flowers) - 1 else 0
+def next_object():
+    global o_index
+    o_index = o_index + 1 if o_index < len(objects) - 1 else 0
 
-def last_flower():
-    global f_index
-    f_index = f_index - 1 if f_index > 0 else len(flowers) - 1
+def last_object():
+    global o_index
+    o_index = o_index - 1 if o_index > 0 else len(objects) - 1
 
-def draw_flower(x, y):
-    draw_q.append({"obj": flowers[f_index], "x": x, "y": y})
-    if not is_drawing:
+def draw_object(x, y):
+    draw_q.append({"obj": objects[o_index], "x": x, "y": y})
+    if not is_drawing and len(draw_q) == 1:
         draw_next()
 
 def draw_next():
@@ -43,11 +45,11 @@ def draw_next():
 def main():
     screen.listen()
 
-    screen.onclick(draw_flower)
-    screen.onkeypress(next_flower, "Right")
-    screen.onkeypress(last_flower, "Left")
-    screen.onkeypress(next_flower, "d")
-    screen.onkeypress(last_flower, "a")
+    screen.onclick(draw_object)
+    screen.onkeypress(next_object, "Right")
+    screen.onkeypress(last_object, "Left")
+    screen.onkeypress(next_object, "d")
+    screen.onkeypress(last_object, "a")
 
     screen.mainloop()
 
